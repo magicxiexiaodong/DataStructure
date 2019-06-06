@@ -32,7 +32,7 @@ public class SingleLinkedListDemo {
 		linkedList.delData(3);
 		linkedList.delData(1);
 		linkedList.delData(4);
-		System.out.println("删除后的链表~~~~~~~~~~~~");
+ 		System.out.println("删除后的链表~~~~~~~~~~~~");
 		linkedList.list();
 
 	}
