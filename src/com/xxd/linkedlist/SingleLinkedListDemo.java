@@ -1,6 +1,5 @@
 package com.xxd.linkedlist;
 
-import java.time.temporal.Temporal;
 import java.util.Stack;
 
 /**
