@@ -1,5 +1,8 @@
 package com.xxd.linkedlist;
 
+import java.time.temporal.Temporal;
+import java.util.Stack;
+
 /**
  * 单向链表
  * 
@@ -16,24 +19,39 @@ public class SingleLinkedListDemo {
 		HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头");
 
 		SingleLinkedList linkedList = new SingleLinkedList();
-		/*
-		 * linkedList.add(heroNode1); linkedList.add(heroNode2);
-		 * linkedList.add(heroNode3); linkedList.add(heroNode4);
-		 */
 		linkedList.addOrderBy(heroNode1);
 		linkedList.addOrderBy(heroNode4);
 		linkedList.addOrderBy(heroNode3);
 		linkedList.addOrderBy(heroNode2);
+		System.out.println("原来的单链表");
 		linkedList.list();
+		//linkedList.reversetList(linkedList.getHead());
+		
+		System.out.println("反转链表~~~~~~~~~~");
+		linkedList.reversePrint(linkedList.getHead());
+		
+		//System.out.println("反转之后的单链表");
+		//linkedList.list();
+		/*
+		 * linkedList.add(heroNode1); linkedList.add(heroNode2);
+		 * linkedList.add(heroNode3); linkedList.add(heroNode4);
+		 */
+		/*
+		HeroNode node = linkedList.getReciprocalK(linkedList.getHead(), 1);
+		System.out.println(node);
+
 		System.out.println("==================");
-		//HeroNode newHero = new HeroNode(2, "卢俊俊", "玉麒麟~~~");
-		//linkedList.updateData(newHero);
+
+		// HeroNode newHero = new HeroNode(2, "卢俊俊", "玉麒麟~~~");
+		// linkedList.updateData(newHero);
 		linkedList.delData(2);
 		linkedList.delData(3);
 		linkedList.delData(1);
 		linkedList.delData(4);
- 		System.out.println("删除后的链表~~~~~~~~~~~~");
+
+		System.out.println("删除后的链表~~~~~~~~~~~~");
 		linkedList.list();
+		*/
 
 	}
 }
@@ -43,28 +61,112 @@ class SingleLinkedList {
 	private HeroNode head = new HeroNode(0, "", "");
 	
 	
+	//反转打印 单链表
+	public void reversePrint(HeroNode head) {
+		if(head.next == null) {
+			System.out.println("单链表为空~~~~~~~");
+		}
+		
+		Stack<HeroNode> stack = new Stack<HeroNode>();
+		
+		HeroNode next = head.next;
+		while(next != null) {
+			//取出一个元素 放入stack中 
+			stack.push(next);
+			next = next.next;
+		}
+		
+		//反向打印
+		while(!stack.isEmpty()) {
+			System.out.println(stack.pop());
+		}
+		
+	}
 	
+	// 将单链表反转  tecent 面试题
+	public void reversetList(HeroNode head) {
+		if (head.next == null || head.next.next == null) {
+			return;
+		}
+
+		// 定义一个辅助的指针(变量)，帮助我们遍历原来的链表
+		HeroNode cur = head.next;
+
+		HeroNode rev = new HeroNode(0, "", "");
+		HeroNode next = null; // 指向当前节点[cur]的下一个节点
+		// 遍历原来的链表，每遍历一个节点，就将其取出，并放在新的链表reverseHead 的最前端
+		// 动脑筋
+		while (cur != null) {
+			next = cur.next;// 先暂时保存当前节点的下一个节点，因为后面需要使用
+			// 遍历原来的每一个节点，并将其放入到reversetlist的最前端
+			cur.next = rev.next;
+			rev.next =  cur; 
+			cur = next; //head 后移
+		}
+		// 将head更换 reversetlist的head
+		head.next = rev.next;
+	}
+
+	public HeroNode getHead() {
+		return head;
+	}
+
+	/**
+	 * 找到单链表倒数第K个节点的数据
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public HeroNode getReciprocalK(HeroNode head, int k) {
+		int length = getLength(head);
+		if (length == 0) {
+			System.out.println("没有数据");
+			return null;
+		}
+		int index = length + 1 - k;
+		HeroNode temp = head; // 4 //1 ==> 3
+		for (int i = 0; i < index; i++) {
+			temp = temp.next;
+		}
+		return temp;
+	}
+
+	public int getLength(HeroNode head) {
+		HeroNode temp = head;
+		int length = 0;
+		while (true) {
+			if (temp.next == null) {
+				break;
+			}
+			temp = temp.next;
+			length++;
+		}
+
+		return length;
+	}
+
 	public void delData(int no) {
 		// 因为head节点不能动，因此我们需要一个辅助遍历 temp
 		HeroNode temp = head;
-		if(temp.next == null) {
+		if (temp.next == null) {
 			System.out.println("没必要删除了，因为已经是空的了");
-			return  ; 
+			return;
 		}
-		
+
 		boolean flag = false;
-		while(true) {
-			if(temp.next.no == no) {
+		while (true) {
+			if (temp.next.no == no) {
 				flag = true;
-				//找到了
+				// 找到了
 				break;
 			}
 			temp = temp.next;
 		}
-		if(flag) {
+		if (flag) {
 			temp.next = temp.next.next;
 		}
 	}
+
 	public void updateData(HeroNode heroNode) {
 		// 因为head节点不能动，因此我们需要一个辅助遍历 temp
 		HeroNode temp = head.next;
@@ -75,17 +177,17 @@ class SingleLinkedList {
 		}
 		// 遍历 找到对应的节点
 		while (true) {
-			if(temp.no == heroNode.no) {
+			if (temp.no == heroNode.no) {
 				flag = true;
 				break;
 			}
-			temp  = temp.next;
+			temp = temp.next;
 		}
 		// 修改相应的数据
-		if(flag) {
+		if (flag) {
 			temp.name = heroNode.name;
 			temp.nickName = heroNode.nickName;
-		}else {
+		} else {
 			System.out.println("没有这个数据 无法修改");
 		}
 	}
