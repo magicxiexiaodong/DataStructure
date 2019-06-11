@@ -24,10 +24,11 @@ public class SingleLinkedListDemo {
 		linkedList.addOrderBy(heroNode2);
 		System.out.println("原来的单链表");
 		linkedList.list();
-		//linkedList.reversetList(linkedList.getHead());
+		linkedList.reversetList(linkedList.getHead());
 		
 		System.out.println("反转链表~~~~~~~~~~");
-		linkedList.reversePrint(linkedList.getHead());
+		linkedList.list();
+		//linkedList.reversePrint(linkedList.getHead());
 		
 		//System.out.println("反转之后的单链表");
 		//linkedList.list();
@@ -92,12 +93,14 @@ class SingleLinkedList {
 		HeroNode cur = head.next;
 
 		HeroNode rev = new HeroNode(0, "", "");
-		HeroNode next = null; // 指向当前节点[cur]的下一个节点
+		HeroNode next = null; 
+		// 指向当前节点[cur]的下一个节点
 		// 遍历原来的链表，每遍历一个节点，就将其取出，并放在新的链表reverseHead 的最前端
 		// 动脑筋
 		while (cur != null) {
 			next = cur.next;// 先暂时保存当前节点的下一个节点，因为后面需要使用
 			// 遍历原来的每一个节点，并将其放入到reversetlist的最前端
+			// 画个图 就明白为什么了
 			cur.next = rev.next;
 			rev.next =  cur; 
 			cur = next; //head 后移
