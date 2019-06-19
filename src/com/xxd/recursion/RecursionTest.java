@@ -1,4 +1,4 @@
-package com.xxd;
+package com.xxd.recursion;
 
 /**
  * @author XXd
