@@ -78,7 +78,7 @@ class ArrayQueue {
 
 	// 判断队列是否满
 	public boolean isFull() {
-		return front == maxSize;
+		return rear == maxSize - 1;
 	}
 
 	// 判断队列是否为空
@@ -112,7 +112,7 @@ class ArrayQueue {
 			return;
 		} else {
 			
-			for ( int i = 0;  i <= arr.length; i++) {
+			for ( int i = 0;  i < arr.length; i++) {
 				System.out.printf("arr[%d]=%d\n", i, arr[i]);
 			}
 		}

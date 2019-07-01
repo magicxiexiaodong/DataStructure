@@ -6,8 +6,6 @@
  */
 package com.xxd.linkedlist;
 
-import java.io.FileInputStream;
-
 /**
  * @author 38636
  *
@@ -17,10 +15,10 @@ public class Josepfu {
 		// 测试一把看看构建环形链表，和遍历是否ok
 		CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
 		circleSingleLinkedList.addBoy(5);// 加入5个小孩节点
-		//circleSingleLinkedList.showBoy();
+		// circleSingleLinkedList.showBoy();
 
 		// 测试一把小孩出圈是否正确
-		 circleSingleLinkedList.countBoy(1, 2, 5); // 2->4->1->5->3
+		circleSingleLinkedList.countBoy(1, 2, 5); // 2->4->1->5->3
 		// String str = "7*2*2-5+1-5+3-3";
 	}
 }
@@ -40,34 +38,34 @@ class CircleSingleLinkedList {
 			System.out.println("参数输入有误， 请重新输入");
 			return;
 		}
-		
-		// 增加一个辅助指针 只想 first 的 后面一个 主要用来 删除节点
+
+		// 增加一个辅助指针 指向 first 的 后面一个 主要用来 删除节点
 		Boy helper = first;
-		
+
 		// 把 helper 指针 移动到first 后面
-		while(helper.getNext() != first) {
+		while (helper.getNext() != first) {
 			helper = helper.getNext();
 		}
 
-		// 把 first 指针和 helper 指针 移动到 第startNo 个小孩 
-		for(int i = 1 ; i < startNo ; i ++) {
+		// 把 first 指针和 helper 指针 移动到 第startNo 个小孩
+		for (int i = 1; i < startNo; i++) {
 			first = first.getNext();
 			helper = helper.getNext();
 		}
-		
+
 		// 开始出圈
-		 // first 指针 指向 要删除的那个节点 即 要出圈的那个孩子
-		while(helper != first) {
-			for(int i = 0 ; i < countNum - 1  ;i++) {
+		// first 指针 指向 要删除的那个节点 即 要出圈的那个孩子
+		while (helper != first) {
+			for (int i = 0; i < countNum - 1; i++) {
 				first = first.getNext();
 				helper = helper.getNext();
 			}
-			 // 开始出圈
+			// 开始出圈
 			System.out.println("出圈的小孩为" + first.getNo());
 			first = first.getNext();
 			helper.setNext(first);
 		}
-		System.out.println("最后留在圈中的小孩为" +first.getNo());
+		System.out.println("最后留在圈中的小孩为" + first.getNo());
 	}
 
 	/**

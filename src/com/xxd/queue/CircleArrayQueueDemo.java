@@ -61,8 +61,8 @@ public static void main(String[] args) {
 }
 
 class CircleArray {
-	// rear 变量的含义做一个调整：rear 指向队列的最后一个元素的后一个位置. 因为希望空出一个空间做为约定.
-	// rear 的初始值 = 0 他就代表 所在的位置为空
+	// rear 变量的含义做一个调整：rear 指向队列的最后一个元素的后一个位置. 因为希望空出一个空间做为约定.即下次添加要插入的位置
+	// rear 的初始值 = 0 他就代表 所在的位置为空 
 	private int rear;
 	// front 变量的含义做一个调整： front 就指向队列的第一个元素, 也就是说 arr[front] 就是队列的第一个元素
 	// front 的初始值 = 0
@@ -87,7 +87,7 @@ class CircleArray {
 
 	// 添加数据到队列
 	public void addQueue(int n) {
-		if ( isFull()) {
+		if (isFull()) {
 			System.out.println("队列满，不能加入数据~");
 			return;
 		}
