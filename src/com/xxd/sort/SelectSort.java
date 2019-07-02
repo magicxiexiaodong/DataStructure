@@ -1,16 +1,34 @@
 package com.xxd.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
 
 /**
  * @author 38636
- *
+ *	2-3s 比冒泡快了好多
  */
 public class SelectSort {
 	public static void main(String[] args) {
-		int arr[] = { 55, 34, 119, 101,44} ; 
+	int arr[] = new int[80000];
+		
+		for(int i = 0 ;i<80000;i++) {
+			Random random = new  Random();
+			arr[i] = random.nextInt(80000);
+		}
+		Date currentDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String date = sdf.format(currentDate);
+		System.out.println("当前时间:"+date);
+		
+		
+		
 		selectSort(arr);
-		print(arr);
+		Date sortAfterDate = new Date();
+		String date2 = sdf.format(sortAfterDate);
+		System.out.println("排序后时间:"+date2);
+	
 	}
 
 	public static void selectSort(int arr[]) {
