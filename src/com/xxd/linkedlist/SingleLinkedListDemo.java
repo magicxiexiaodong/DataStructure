@@ -13,9 +13,9 @@ import java.util.Stack;
 public class SingleLinkedListDemo {
 	public static void main(String[] args) {
 		HeroNode heroNode1 = new HeroNode(1, "宋江", "及时雨");
-		HeroNode heroNode2 = new HeroNode(2, "卢俊义", "玉麒麟");
 		HeroNode heroNode3 = new HeroNode(3, "吴用", "智多星");
 		HeroNode heroNode4 = new HeroNode(4, "林冲", "豹子头");
+		HeroNode heroNode2 = new HeroNode(2, "卢俊义", "玉麒麟");
 
 		SingleLinkedList linkedList = new SingleLinkedList();
 		linkedList.addOrderBy(heroNode1);
@@ -195,7 +195,7 @@ class SingleLinkedList {
 	}
 
 	public void addOrderBy(HeroNode heroNode) {
-		// 因为head节点不能动，因此我们需要一个辅助遍历 temp
+		// 因为head节点不能动，因此我们需要一个辅助遍历 temp  代表 要插入节点的 前一个
 		HeroNode temp = head;
 		// 遍历
 		boolean flag = true;
