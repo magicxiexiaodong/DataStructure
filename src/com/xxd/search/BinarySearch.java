@@ -5,7 +5,7 @@ import java.util.List;
 
 public class BinarySearch {
 	public static void main(String[] args) {
-		int arr[] = { 1, 8, 10, 89, 1000, 1000,1000, 1234 };
+		int arr[] = { 1, 8, 89, 1000, 1000,1000, 1234 };
 		List<Integer> list = binarySearch2(arr, 0, arr.length - 1, 1000);
 		for (Integer integer : list) {
 			System.out.print(integer + "\t");
