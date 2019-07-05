@@ -11,7 +11,7 @@ public class Queue8 {
 	static int judgeCount = 0;
 
 	public static void main(String[] args) {
-		//测试一把 ， 8皇后是否正确
+		// 测试一把 ， 8皇后是否正确
 		Queue8 queue8 = new Queue8();
 		queue8.check(0);
 		System.out.printf("一共有%d解法", count);
@@ -19,15 +19,15 @@ public class Queue8 {
 	}
 
 	private void check(int n) {
-		if(n == max) { 
+		if (n == max) {
 			print();
-			return ;
+			return;
 		}
-		
-		for(int i =0 ; i<max ;i++) {
+
+		for (int i = 0; i < max; i++) {
 			array[n] = i;
-			if(judge(n)) {
-				check(n+1);
+			if (judge(n)) {
+				check(n + 1);
 			}
 		}
 	}
