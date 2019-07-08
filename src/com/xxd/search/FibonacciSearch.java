@@ -1,7 +1,6 @@
 package com.xxd.search;
 
 import java.util.Arrays;
-import java.util.Map;
 
 public class FibonacciSearch {
 	private static int maxSize = 20;
