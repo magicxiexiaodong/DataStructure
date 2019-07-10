@@ -1,6 +1,5 @@
 package com.xxd.hashtab;
 
-import java.util.HashMap;
 
 public class HashTabDemo {
 	public static void main(String[] args) {
@@ -22,12 +21,7 @@ public class HashTabDemo {
 		hashTab.del(11);
 		hashTab.list();
 		
-		/*Emp emp = hashTab.findById(3);
-		if (emp == null) {
-			System.out.println("在hash表中 并未有这个员工");
-		} else {
-			System.out.println(emp);
-		}*/
+		
 	}
 }
 
