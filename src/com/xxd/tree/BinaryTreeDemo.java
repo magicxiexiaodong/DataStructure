@@ -1,23 +1,27 @@
 package com.xxd.tree;
 
+import com.xxd.tree.HeroNode;
+
 public class BinaryTreeDemo {
 	public static void main(String[] args) {
 
 		BinaryTree binaryTree = new BinaryTree();
 
 		HeroNode root = new HeroNode(1, "及时雨宋江");
-		HeroNode heroNode2 = new HeroNode(2, "智多星吴用");
-		HeroNode heroNode3 = new HeroNode(3, "玉麒麟卢俊义");
-		HeroNode heroNode4 = new HeroNode(4, "豹子头林冲");
-		HeroNode heroNode5 = new HeroNode(5, "大刀关胜");
+		HeroNode heroNode2 = new HeroNode(3, "玉麒麟 卢俊义");
+		HeroNode heroNode3 = new HeroNode(6, "智多星吴用");
+		HeroNode heroNode4 = new HeroNode(8, "入云龙公孙胜");
+		HeroNode heroNode5 = new HeroNode(10, "大刀关胜");
+		HeroNode heroNode6 = new HeroNode(14, "豹子头 林冲");
 		root.setLeft(heroNode2);
 		root.setRight(heroNode3);
-		heroNode3.setRight(heroNode4);
-		heroNode3.setLeft(heroNode5);
+		heroNode2.setLeft(heroNode4);
+		heroNode2.setRight(heroNode5);
+		heroNode3.setLeft(heroNode6);
 		binaryTree.setRoot(root);
 
-		// System.out.println("前序遍历");
-		// binaryTree.preOrder();
+		 System.out.println("前序遍历");
+		 binaryTree.infixOrder();
 
 		// System.out.println("中序遍历");
 		// binaryTree.infixOrder();
@@ -53,13 +57,13 @@ public class BinaryTreeDemo {
 		} else {
 			System.out.printf("没有找到no = %d 的英雄", 5);
 		}*/
-		
+		/*
 		System.out.println("删除前的 - 前序遍历");
 		binaryTree.preOrder();
 		
 		binaryTree.delNode(2);
 		System.out.println("删除后的 - 前序遍历");
-		binaryTree.preOrder();
+		binaryTree.preOrder();*/
 		
 		
 	}
