@@ -293,7 +293,6 @@ class HeroNode {
 
 	// 中序遍历
 	public void infixOrder() {
-
 		// 递归向左子树中序遍历
 		if (this.left != null) {
 			this.left.infixOrder();
@@ -366,7 +365,6 @@ class HeroNode {
 
 	// 后序遍历查找
 	public HeroNode postOrderSearch(int no) {
-
 		// 判断当前结点的左子节点是否为空，如果不为空，则递归后序查找
 		HeroNode resNode = null;
 		if (this.left != null) {
