@@ -102,7 +102,6 @@ class ArrayQueue {
 		} else {
 			return arr[++front];
 		}
-
 	}
 
 	// 显示队列的所有数据
