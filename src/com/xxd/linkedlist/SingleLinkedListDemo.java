@@ -60,7 +60,6 @@ class SingleLinkedList {
 	// 头结点什么也不放
 	private HeroNode head = new HeroNode(0, "", "");
 	
-	
 	//反转打印 单链表
 	public void reversePrint(HeroNode head) {
 		if(head.next == null) {
@@ -83,7 +82,7 @@ class SingleLinkedList {
 		
 	}
 	
-	// 将单链表反转  tecent 面试题
+	// 将单链表反转  tencent 面试题
 	public void reversetList(HeroNode head) {
 		if (head.next == null || head.next.next == null) {
 			return;

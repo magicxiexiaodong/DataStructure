@@ -2,33 +2,33 @@ package com.xxd.linkedlist;
 
 public class DoubleLinkedListDemo {
 	public static void main(String[] args) {
-				// 测试
-				System.out.println("双向链表的测试");
-				// 先创建节点
-				HeroNode2 hero1 = new HeroNode2(1, "宋江", "及时雨");
-				HeroNode2 hero2 = new HeroNode2(2, "卢俊义", "玉麒麟");
-				HeroNode2 hero3 = new HeroNode2(3, "吴用", "智多星");
-				HeroNode2 hero4 = new HeroNode2(4, "林冲", "豹子头");
-				// 创建一个双向链表
-				DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-				doubleLinkedList.add(hero1);
-				doubleLinkedList.add(hero2);
-				doubleLinkedList.add(hero3);
-				doubleLinkedList.add(hero4);
-				
-				doubleLinkedList.list();
-				
-				// 修改
-				HeroNode2 newHeroNode = new HeroNode2(4, "公孙胜", "入云龙");
-				doubleLinkedList.update(newHeroNode);
-				System.out.println("修改后的链表情况");
-				doubleLinkedList.list();
-				
-				// 删除
-				doubleLinkedList.del(3);
-				System.out.println("删除后的链表情况~~");
-				doubleLinkedList.list();
-				
+		// 测试
+		System.out.println("双向链表的测试");
+		// 先创建节点
+		HeroNode2 hero1 = new HeroNode2(1, "宋江", "及时雨");
+		HeroNode2 hero2 = new HeroNode2(2, "卢俊义", "玉麒麟");
+		HeroNode2 hero3 = new HeroNode2(3, "吴用", "智多星");
+		HeroNode2 hero4 = new HeroNode2(4, "林冲", "豹子头");
+		// 创建一个双向链表
+		DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
+		doubleLinkedList.add(hero1);
+		doubleLinkedList.add(hero2);
+		doubleLinkedList.add(hero3);
+		doubleLinkedList.add(hero4);
+
+		doubleLinkedList.list();
+
+		// 修改
+		HeroNode2 newHeroNode = new HeroNode2(4, "公孙胜", "入云龙");
+		doubleLinkedList.update(newHeroNode);
+		System.out.println("修改后的链表情况");
+		doubleLinkedList.list();
+
+		// 删除
+		doubleLinkedList.del(3);
+		System.out.println("删除后的链表情况~~");
+		doubleLinkedList.list();
+
 	}
 }
 
@@ -42,7 +42,6 @@ class DoubleLinkedList {
 	}
 
 	// 遍历双向链表的方法
-	// 显示链表[遍历]
 	// 显示链表[遍历]
 	public void list() {
 		// 判断链表是否为空
@@ -64,6 +63,7 @@ class DoubleLinkedList {
 			temp = temp.next;
 		}
 	}
+
 	// 添加一个节点到双向链表的最后.
 	public void add(HeroNode2 heroNode) {
 		// 因为head节点不能动，因此我们需要一个辅助遍历 temp
@@ -82,7 +82,7 @@ class DoubleLinkedList {
 		temp.next = heroNode;
 		heroNode.pre = temp;
 	}
-	
+
 	// 修改一个节点的内容, 可以看到双向链表的节点内容修改和单向链表一样
 	// 只是 节点类型改成 HeroNode2
 	public void update(HeroNode2 heroNode) {
@@ -109,11 +109,11 @@ class DoubleLinkedList {
 			System.out.println("没有这个数据 无法修改");
 		}
 	}
-	
+
 	// 从双向链表中删除一个节点,
-		// 说明
-		// 1 对于双向链表，我们可以直接找到要删除的这个节点
-		// 2 找到后，自我删除即可
+	// 说明
+	// 1 对于双向链表，我们可以直接找到要删除的这个节点
+	// 2 找到后，自我删除即可
 	public void del(int no) {
 		// 因为head节点不能动，因此我们需要一个辅助遍历 temp
 		HeroNode2 temp = head;
@@ -135,10 +135,10 @@ class DoubleLinkedList {
 			temp.next.pre = temp.pre;
 			// 这里我们的代码有问题?
 			// 如果是最后一个节点，就不需要执行下面这句话，否则出现空指针
-			if(temp.next != null) {
-				temp.pre.next = temp.next  ;
+			if (temp.next != null) {
+				temp.pre.next = temp.next;
 			}
-		}else {
+		} else {
 			System.out.printf("要删除的 %d 节点不存在\n", no);
 		}
 	}

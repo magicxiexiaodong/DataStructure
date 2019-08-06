@@ -1,16 +1,18 @@
 package com.xxd.sparseArray;
 
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.LinkedList;
 
 public class sparseArray {
 
 	public static void main(String[] args) {
 
-		int chessArray[][] = new int[11][11];
+		int chessArray[][] = new int[11][10];
 
 		chessArray[1][2] = 1;
 		chessArray[2][3] = 2;
@@ -27,16 +29,16 @@ public class sparseArray {
 		System.out.println("生成的稀疏数组");
 		System.out.println("=================");
 		printArr(sparseArr);
-	
+		
 		// 将稀疏数组 保存到文件中 map.data
 
-		// genFile(sparseArr,"d:/map.data");
+		//genFile(sparseArr,"d:/map.data");
 
 		// 读取文件 转化为 二维数组
-		//int[][] sparseArray = readFile("d:/map.data");
-		
-		//printArr(sparseArray);
-		
+		// int[][] sparseArray = readFile("d:/map.data");
+
+		// printArr(sparseArray);
+
 		// 将稀疏数组转为原来的二维数组
 		int[][] chessArray2 = sparseArr2chessArr(sparseArr);
 
@@ -93,8 +95,8 @@ public class sparseArray {
 
 		// 2 生成 new[sum+1][3]
 		int sparseArr[][] = new int[sum + 1][3];
-		sparseArr[0][0] = chessArray.length;
-		sparseArr[0][1] = chessArray[0].length;
+		sparseArr[0][0] = chessArray.length; // 多少行
+		sparseArr[0][1] = chessArray[0].length; // 多少列
 		sparseArr[0][2] = sum;
 
 		// 3 将非0 数字塞入

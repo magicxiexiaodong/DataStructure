@@ -3,13 +3,12 @@ package com.xxd.queue;
 import java.util.Scanner;
 
 public class CircleArrayQueueDemo {
-public static void main(String[] args) {
-		
-		//测试一把
+	public static void main(String[] args) {
+		// 测试一把
 		System.out.println("测试数组模拟环形队列的案例~~~");
-		
+
 		// 创建一个环形队列
-		CircleArray queue = new CircleArray(4); //说明设置4, 其队列的有效数据最大是3
+		CircleArray queue = new CircleArray(4); // 说明设置4, 其队列的有效数据最大是3
 		char key = ' '; // 接收用户输入
 		Scanner scanner = new Scanner(System.in);//
 		boolean loop = true;
@@ -35,7 +34,6 @@ public static void main(String[] args) {
 					int res = queue.getQueue();
 					System.out.printf("取出的数据是%d\n", res);
 				} catch (Exception e) {
-					// TODO: handle exception
 					System.out.println(e.getMessage());
 				}
 				break;
@@ -44,7 +42,6 @@ public static void main(String[] args) {
 					int res = queue.headQueue();
 					System.out.printf("队列头的数据是%d\n", res);
 				} catch (Exception e) {
-					// TODO: handle exception
 					System.out.println(e.getMessage());
 				}
 				break;
@@ -62,7 +59,7 @@ public static void main(String[] args) {
 
 class CircleArray {
 	// rear 变量的含义做一个调整：rear 指向队列的最后一个元素的后一个位置. 因为希望空出一个空间做为约定.即下次添加要插入的位置
-	// rear 的初始值 = 0 他就代表 所在的位置为空 
+	// rear 的初始值 = 0 他就代表 所在的位置为空
 	private int rear;
 	// front 变量的含义做一个调整： front 就指向队列的第一个元素, 也就是说 arr[front] 就是队列的第一个元素
 	// front 的初始值 = 0
