@@ -24,7 +24,7 @@ public class Queue8 {
 			return;
 		}
 
-		for (int i = 0; i < max; i++) {
+		for (int i = 0; i < max; i++) { // 给皇后放位置，遍历放，看那个满足，满足 就放下一行皇后
 			array[n] = i;
 			if (judge(n)) {
 				check(n + 1);
@@ -34,7 +34,7 @@ public class Queue8 {
 
 	private boolean judge(int n) {
 		judgeCount++;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { // 从第一行开始判断，跟当前的行数做判断，首先不能相等，其次不等在同一个斜线上
 			if (array[i] == array[n] || Math.abs(n - i) == Math.abs(array[n] - array[i])) {
 				return false;
 			}
